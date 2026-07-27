@@ -54,4 +54,50 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+# PROGRAMMING FUNDAMENTALS — Assignment 6
+# Topic: Loops and Functions
+# =============================================================================
+
+def print_single_table(number):
+    """Prints the multiplication table for a given number from 1 to 12."""
+    print(f"Multiplication Table for {number}:")
+    for i in range(1, 13):
+        # Using format formatting to ensure double-digit alignment like the expected output
+        if i < 10:
+            print(f"{number}  x  {i}  =  {number * i}")
+        else:
+            print(f"{number}  x  {i} =  {number * i}")
+
+
+def print_tables_up_to_n(n):
+    """Prints multiplication tables for numbers from 1 to N with separators."""
+    for current_number in range(1, n + 1):
+        print_single_table(current_number)
+        # Add a separator line after each table except the last one
+        if current_number < n:
+            print("-" * 27)
+
+
+if __name__ == "__main__":
+    # ---------------- PART A — Single Table ----------------
+    try:
+        user_input = int(input("Enter a number: "))
+        print_single_table(user_input)
+    except ValueError:
+        print("Error: Please enter a valid integer.")
+
+    print()  # Blank line between Part A and Part B
+
+    # ---------------- PART B — Bonus: Tables from 1 to N ----------------
+    try:
+        n_input = int(input("Enter N (tables from 1 to N): "))
+
+        # Input validation for positive integer N
+        if n_input <= 0:
+            print("Error: N must be a positive integer.")
+        else:
+            print_tables_up_to_n(n_input)
+    except ValueError:
+        print("Error: Please enter a valid integer.")
+# =============================================================================
 
